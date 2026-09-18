@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BuildYourCollectionRouteImport } from './routes/build-your-collection'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as WholesaleRouteImport } from './routes/wholesale'
+import { Route as CollectiblesTelegraphRouteImport } from './routes/collectibles.telegraph'
+import { Route as ProductPatentTeeRouteImport } from './routes/product.patent-tee'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuildYourCollectionRoute = BuildYourCollectionRouteImport.update({
+  id: '/build-your-collection',
+  path: '/build-your-collection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WholesaleRoute = WholesaleRouteImport.update({
+  id: '/wholesale',
+  path: '/wholesale',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectiblesTelegraphRoute = CollectiblesTelegraphRouteImport.update({
+  id: '/collectibles/telegraph',
+  path: '/collectibles/telegraph',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductPatentTeeRoute = ProductPatentTeeRouteImport.update({
+  id: '/product/patent-tee',
+  path: '/product/patent-tee',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/build-your-collection': typeof BuildYourCollectionRoute
+  '/shop': typeof ShopRoute
+  '/wholesale': typeof WholesaleRoute
+  '/collectibles/telegraph': typeof CollectiblesTelegraphRoute
+  '/product/patent-tee': typeof ProductPatentTeeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/build-your-collection': typeof BuildYourCollectionRoute
+  '/shop': typeof ShopRoute
+  '/wholesale': typeof WholesaleRoute
+  '/collectibles/telegraph': typeof CollectiblesTelegraphRoute
+  '/product/patent-tee': typeof ProductPatentTeeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/build-your-collection': typeof BuildYourCollectionRoute
+  '/shop': typeof ShopRoute
+  '/wholesale': typeof WholesaleRoute
+  '/collectibles/telegraph': typeof CollectiblesTelegraphRoute
+  '/product/patent-tee': typeof ProductPatentTeeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/build-your-collection'
+    | '/shop'
+    | '/wholesale'
+    | '/collectibles/telegraph'
+    | '/product/patent-tee'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/build-your-collection'
+    | '/shop'
+    | '/wholesale'
+    | '/collectibles/telegraph'
+    | '/product/patent-tee'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/build-your-collection'
+    | '/shop'
+    | '/wholesale'
+    | '/collectibles/telegraph'
+    | '/product/patent-tee'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BuildYourCollectionRoute: typeof BuildYourCollectionRoute
+  ShopRoute: typeof ShopRoute
+  WholesaleRoute: typeof WholesaleRoute
+  CollectiblesTelegraphRoute: typeof CollectiblesTelegraphRoute
+  ProductPatentTeeRoute: typeof ProductPatentTeeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/build-your-collection': {
+      id: '/build-your-collection'
+      path: '/build-your-collection'
+      fullPath: '/build-your-collection'
+      preLoaderRoute: typeof BuildYourCollectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wholesale': {
+      id: '/wholesale'
+      path: '/wholesale'
+      fullPath: '/wholesale'
+      preLoaderRoute: typeof WholesaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collectibles/telegraph': {
+      id: '/collectibles/telegraph'
+      path: '/collectibles/telegraph'
+      fullPath: '/collectibles/telegraph'
+      preLoaderRoute: typeof CollectiblesTelegraphRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product/patent-tee': {
+      id: '/product/patent-tee'
+      path: '/product/patent-tee'
+      fullPath: '/product/patent-tee'
+      preLoaderRoute: typeof ProductPatentTeeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BuildYourCollectionRoute: BuildYourCollectionRoute,
+  ShopRoute: ShopRoute,
+  WholesaleRoute: WholesaleRoute,
+  CollectiblesTelegraphRoute: CollectiblesTelegraphRoute,
+  ProductPatentTeeRoute: ProductPatentTeeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
